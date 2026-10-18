@@ -30,3 +30,16 @@ From employee emp1
 join employee emp2
 	ON emp1.employee_id + 1 = emp2.employee_id; 
 
+-- joining multiple table together
+SELECT * 
+FROM employee AS emp
+INNER JOIN employee1 AS emp1
+    ON emp.employee_id = emp1.employee_id
+INNER JOIN products AS pd
+    ON emp.department = pd.department;
+
+
+
+
+
+    
