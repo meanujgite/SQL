@@ -41,3 +41,47 @@ UPDATE employee SET birth_date = '2001-02-11' WHERE employee_id = 113;
 UPDATE employee SET birth_date = '1995-12-23' WHERE employee_id = 114;
 UPDATE employee SET birth_date = '1993-12-23' WHERE employee_id = 115;
 
+ALTER TABLE employee 
+ADD dept_id INT;
+
+UPDATE employee 
+SET dept_id = 1 
+WHERE employee_id = 101;
+
+-- Disable safe updates temporarily to allow updating the whole table
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE employee 
+SET dept_id = (employee_id - 100);
+
+-- Re-enable safe updates for security
+SET SQL_SAFE_UPDATES = 1;
+
+CREATE TABLE departments (
+    dept_id INT PRIMARY KEY,
+    dept_name VARCHAR(50) NOT NULL
+);
+
+INSERT INTO departments (dept_id, dept_name) VALUES
+(1, 'Human Resources'),
+(2, 'Information Technology'),
+(3, 'Finance'),
+(4, 'Marketing'),
+(5, 'Sales'),
+(6, 'Operations'),
+(7, 'Legal'),
+(8, 'Customer Support'),
+(9, 'Research & Development'),
+(10, 'Quality Assurance'),
+(11, 'Product Management'),
+(12, 'Supply Chain'),
+(13, 'Public Relations'),
+(14, 'Security'),
+(15, 'Facilities');
+
+SELECT * FROM employee
+
+
+
+
+
